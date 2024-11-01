@@ -8,6 +8,7 @@ import Cta from "@/components/Cta";
 
 /* FUNCTIONS */
 import { translate } from "@/functions/translate";
+import { getReviews } from "@/server/getReviews";
 
 /* ASSETS */
 import homeIllustration from "@/assets/home/home-illustration.png";
@@ -16,15 +17,39 @@ import homeGrid2 from "@/assets/home/home-grid-2.png";
 import homeGrid3 from "@/assets/home/home-grid-3.png";
 import homeAbout from "@/assets/home/home-about.png";
 import homeAbout2 from "@/assets/home/home-about-2.png";
+import CustomCarousel from "@/components/CustomCarousel";
 
 interface HomeProps {
   params: Promise<{
     lang: string;
   }>;
 }
+interface Review {
+  author_name: string;
+  author_url: string;
+  language: string;
+  original_language: string;
+  profile_photo_url: string;
+  rating: number;
+  relative_time_description: string;
+  text: string;
+  time: number;
+  translated: boolean;
+}
 
 export default async function Home({ params }: HomeProps) {
   const { lang } = await params;
+  const reviews = await getReviews(lang);
+
+  // Transform PlaceReview to Review
+  const transformedReviews: Review[] = reviews.map((review) => ({
+    ...review,
+    author_url: review.author_url || "", // Provide default empty string if undefined
+    original_language: review.language || "fr",
+    translated: false,
+    time: Number(review.time), // Convert time string to number
+  }));
+
   return (
     <div className="" id="home">
       <Wrapper>
@@ -155,6 +180,11 @@ export default async function Home({ params }: HomeProps) {
               imageWidth="w-[60%]"
             />
           </>
+        </Wrapper>
+      </div>
+      <div className="my-48 bg-[#002859] text-white py-16">
+        <Wrapper>
+          <CustomCarousel reviews={transformedReviews} />
         </Wrapper>
       </div>
     </div>
