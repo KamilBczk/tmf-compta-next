@@ -1,15 +1,17 @@
 import React, { ReactNode } from "react";
 import Image, { StaticImageData } from "next/image";
+import { ReactSVG } from "react-svg";
 
 interface CtaProps {
   reverse?: boolean;
   title: ReactNode;
-  image: StaticImageData;
+  image: StaticImageData | ReactNode;
   content: ReactNode[];
   list?: string[];
   button: ReactNode;
   hideButton?: boolean;
   imageWidth?: string;
+  imageIsSvg?: boolean;
 }
 
 export default function Cta({
@@ -21,6 +23,7 @@ export default function Cta({
   button,
   hideButton = false,
   imageWidth = "w-full",
+  imageIsSvg = false,
 }: CtaProps) {
   return (
     <div
@@ -30,14 +33,18 @@ export default function Cta({
     >
       <div className="w-full relative md:w-1/2 flex items-center justify-center">
         <div className={`relative ${imageWidth}`}>
-          <Image
-            className="object-contain rounded-2xl"
-            alt="Image descriptive"
-            src={image}
-            width={500}
-            height={500}
-            style={{ width: "100%", height: "auto" }}
-          />
+          {imageIsSvg ? (
+            image
+          ) : (
+            <Image
+              className="object-contain rounded-2xl"
+              alt="Image descriptive"
+              src={image}
+              width={500}
+              height={500}
+              style={{ width: "100%", height: "auto" }}
+            />
+          )}
         </div>
       </div>
       <div className="w-full md:w-1/2 py-0 md:py-24">
@@ -56,9 +63,7 @@ export default function Cta({
             ))}
           </ul>
         )}
-        <div className={`${hideButton === true ? "hidden" : ""} mt-8`}>
-          {button}
-        </div>
+        {!hideButton && <div className={`mt-8`}>{button}</div>}
       </div>
     </div>
   );

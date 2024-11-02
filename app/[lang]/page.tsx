@@ -18,6 +18,9 @@ import homeGrid3 from "@/assets/home/home-grid-3.png";
 import homeAbout from "@/assets/home/home-about.png";
 import homeAbout2 from "@/assets/home/home-about-2.png";
 import CustomCarousel from "@/components/CustomCarousel";
+import roundIllustrationFr from "@/assets/global/360-fr.svg";
+import { ReactSVG } from "react-svg";
+import RoundedIllustration from "@/components/RoundedIllustration";
 
 interface HomeProps {
   params: Promise<{
@@ -164,20 +167,19 @@ export default async function Home({ params }: HomeProps) {
               }
               image={homeAbout2}
               content={[
-                "Nous offrons des services sur mesure pour répondre efficacement à vos besoins spécifiques.",
+                translate("480ba1ba-92f8-4606-a190-f6ca11726f49", lang),
               ]}
               list={[
-                "Gestion de comptabilité et déclarations TVA",
-                "Établissement de situations comptables",
-                "Établissement de situations comptables",
-                "Rédaction et dépôt de déclarations fiscales (IPP/ISOC)",
-                "Pour sociétés, rédaction et dépôt de comptes annuels",
-                "Conseils en fiscalité et optimisation fiscale",
-                "Assistance et défense lors de contrôles fiscaux",
+                translate("e90ab953-2213-466a-b1c5-64c2230db7a7", lang),
+                translate("12abc872-4269-47b9-926c-2263521e8a71", lang),
+                translate("a00e3bea-a51a-42f0-b16d-0b0038405a8f", lang),
+                translate("733716d1-4d12-489d-9bc6-bccb7d0c3947", lang),
+                translate("643ffeff-57fd-4413-8e42-7f5ab8c6fb02", lang),
+                translate("11819b81-6cf5-4aaa-9745-d940bc1c5409", lang),
               ]}
               button={<></>}
               hideButton={true}
-              imageWidth="w-[60%]"
+              imageWidth="w-[70%] md:w-[60%]"
             />
           </>
         </Wrapper>
@@ -185,6 +187,27 @@ export default async function Home({ params }: HomeProps) {
       <div className="my-48 bg-[#002859] text-white py-16">
         <Wrapper>
           <CustomCarousel reviews={transformedReviews} />
+        </Wrapper>
+      </div>
+      <div className="my-48">
+        <Wrapper small={true}>
+          <Cta
+            reverse={true}
+            title={
+              <h3 className="text-2xl md:text-3xl text-left font-normal">
+                <span>Un service en </span>
+                <span className="text-[#002859] font-medium">360°</span>
+              </h3>
+            }
+            image={<RoundedIllustration lang={lang} />}
+            content={[
+              "Découvrez notre roue de services, votre passerelle vers une gestion comptable et financière optimale. Explorez les différentes sections en cliquant sur la roue et accédez à une expertise spécialisée dans les domaines clés.",
+            ]}
+            button={<></>}
+            imageWidth="w-[70%] md:w-[80%]"
+            imageIsSvg={true}
+            hideButton={true}
+          />
         </Wrapper>
       </div>
     </div>

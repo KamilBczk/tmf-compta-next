@@ -62,7 +62,6 @@ export default async function RootLayout({ children, params }: LayoutProps) {
           ]}
         />
         {children}
-        <div className="pt-[80000px]">{children}</div>
       </body>
     </html>
   );
