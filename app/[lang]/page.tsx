@@ -5,6 +5,8 @@ import Image from "next/image";
 import EnterpriseGrid from "@/components/EnterpriseGrid";
 import LogoSlider from "@/components/LogoSlider";
 import Cta from "@/components/Cta";
+import RoundedIllustration from "@/components/RoundedIllustration";
+import CustomCarousel from "@/components/CustomCarousel";
 
 /* FUNCTIONS */
 import { translate } from "@/functions/translate";
@@ -17,10 +19,6 @@ import homeGrid2 from "@/assets/home/home-grid-2.png";
 import homeGrid3 from "@/assets/home/home-grid-3.png";
 import homeAbout from "@/assets/home/home-about.png";
 import homeAbout2 from "@/assets/home/home-about-2.png";
-import CustomCarousel from "@/components/CustomCarousel";
-import roundIllustrationFr from "@/assets/global/360-fr.svg";
-import { ReactSVG } from "react-svg";
-import RoundedIllustration from "@/components/RoundedIllustration";
 
 interface HomeProps {
   params: Promise<{

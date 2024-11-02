@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import Image, { StaticImageData } from "next/image";
-import { ReactSVG } from "react-svg";
 
 interface CtaProps {
   reverse?: boolean;
@@ -34,12 +33,12 @@ export default function Cta({
       <div className="w-full relative md:w-1/2 flex items-center justify-center">
         <div className={`relative ${imageWidth}`}>
           {imageIsSvg ? (
-            image
+            <>{image}</>
           ) : (
             <Image
               className="object-contain rounded-2xl"
               alt="Image descriptive"
-              src={image}
+              src={image as StaticImageData}
               width={500}
               height={500}
               style={{ width: "100%", height: "auto" }}
