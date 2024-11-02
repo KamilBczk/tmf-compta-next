@@ -11,6 +11,7 @@ interface CtaProps {
   hideButton?: boolean;
   imageWidth?: string;
   imageIsSvg?: boolean;
+  darkenImage?: boolean;
 }
 
 export default function Cta({
@@ -23,10 +24,11 @@ export default function Cta({
   hideButton = false,
   imageWidth = "w-full",
   imageIsSvg = false,
+  darkenImage = false,
 }: CtaProps) {
   return (
     <div
-      className={`flex flex-col md:flex-row w-full gap-24 ${
+      className={`flex flex-col md:flex-row w-full gap-8 md:gap-24 group ${
         reverse ? "md:flex-row-reverse" : ""
       }`}
     >
@@ -35,14 +37,19 @@ export default function Cta({
           {imageIsSvg ? (
             <>{image}</>
           ) : (
-            <Image
-              className="object-contain rounded-2xl"
-              alt="Image descriptive"
-              src={image as StaticImageData}
-              width={500}
-              height={500}
-              style={{ width: "100%", height: "auto" }}
-            />
+            <div className="relative">
+              <Image
+                className="object-contain rounded-2xl"
+                alt="Image descriptive"
+                src={image as StaticImageData}
+                width={500}
+                height={500}
+                style={{ width: "100%", height: "auto" }}
+              />
+              {darkenImage && (
+                <div className="absolute inset-0 bg-[#002859] opacity-50 rounded-2xl transition-all group-hover:opacity-35" />
+              )}
+            </div>
           )}
         </div>
       </div>

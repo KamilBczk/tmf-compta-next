@@ -33,7 +33,7 @@ interface LayoutProps {
 export default async function RootLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${manrope.variable} antialiased`}>
         <Header
           lang={lang}
@@ -45,7 +45,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
               active: true,
             },
             {
-              href: `/${lang}/comptabilite-generale`,
+              href: `/${lang}/general-accounting`,
               label: translate("9e52e1ec-ec33-4e9b-a6f8-6b9165411c1f", lang),
               active: false,
             },
