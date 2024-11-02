@@ -193,14 +193,16 @@ export default async function Home({ params }: HomeProps) {
             reverse={true}
             title={
               <h3 className="text-2xl md:text-3xl text-left font-normal">
-                <span>Un service en </span>
-                <span className="text-[#002859] font-medium">360°</span>
+                <span>
+                  {translate("46252ca1-f5c7-4ea0-94f6-57945213c08b", lang)}
+                </span>
+                <span className="text-[#002859] font-medium">
+                  {translate("d7947c5f-7c26-4361-a9a6-5b32e1c35a19", lang)}
+                </span>
               </h3>
             }
             image={<RoundedIllustration lang={lang} />}
-            content={[
-              "Découvrez notre roue de services, votre passerelle vers une gestion comptable et financière optimale. Explorez les différentes sections en cliquant sur la roue et accédez à une expertise spécialisée dans les domaines clés.",
-            ]}
+            content={[translate("9aab18a8-934f-4aa3-85c9-49d71efcc11d", lang)]}
             button={<></>}
             imageWidth="w-[70%] md:w-[80%]"
             imageIsSvg={true}

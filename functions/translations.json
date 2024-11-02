@@ -25,7 +25,7 @@
   },
   "85bd3bdc-2433-48a4-ad7b-e725d32f44c7": {
     "fr": "Situé à ",
-    "ro": "Situat în"
+    "ro": "Situat în "
   },
   "8ad1210c-ca21-4485-9f83-8b4077f35a1e": {
     "fr": "Zaventem",
@@ -37,7 +37,7 @@
   },
   "9e92cf7a-9e98-4b75-9e24-6615cea73927": {
     "fr": "À chaque phase de votre ",
-    "ro": "La fiecare fază a"
+    "ro": "La fiecare fază a "
   },
   "ce4746d5-02b0-45e3-b266-dab49e959777": {
     "fr": "entreprise",
@@ -57,7 +57,7 @@
   },
   "1a891d0e-8856-4798-a91f-afdc07793000": {
     "fr": "Qui sommes ",
-    "ro": "Cine suntem"
+    "ro": "Cine suntem "
   },
   "0297397f-4c37-404a-ad7b-3531fca0a4ca": {
     "fr": "nous",
@@ -69,15 +69,15 @@
   },
   "fd8dcbc1-ae63-4e5a-940e-ee7361c468a6": {
     "fr": "Pourquoi ",
-    "ro": "De ce"
+    "ro": "De ce "
   },
   "f4292959-1d71-499a-8c82-47ed5f973ff8": {
     "fr": "nous ",
-    "ro": "noi"
+    "ro": "noi "
   },
   "86e5e82b-b666-4cd8-8434-006ad89d29a9": {
     "fr": "choisir",
-    "ro": "alegeți"
+    "ro": "alegeți "
   },
   "480ba1ba-92f8-4606-a190-f6ca11726f49": {
     "fr": "Nous offrons des services sur mesure pour répondre efficacement à vos besoins spécifiques.",
@@ -106,5 +106,17 @@
   "11819b81-6cf5-4aaa-9745-d940bc1c5409": {
     "fr": "Assistance et défense lors de contrôles fiscaux",
     "ro": "Asistență și apărare în timpul controalelor fiscale"
+  },
+  "46252ca1-f5c7-4ea0-94f6-57945213c08b": {
+    "fr": "Un service en ",
+    "ro": "Un serviciu în "
+  },
+  "d7947c5f-7c26-4361-a9a6-5b32e1c35a19": {
+    "fr": "360°",
+    "ro": "360°"
+  },
+  "9aab18a8-934f-4aa3-85c9-49d71efcc11d": {
+    "fr": "Découvrez notre roue de services, votre passerelle vers une gestion comptable et financière optimale. Explorez les différentes sections en cliquant sur la roue et accédez à une expertise spécialisée dans les domaines clés.",
+    "ro": "Descoperiți roata noastră de servicii, poarta dumneavoastră către o gestionare contabilă și financiară optimă. Explorați diferitele secțiuni făcând clic pe roată și accesați expertiza specializată în domeniile cheie."
   }
 }
