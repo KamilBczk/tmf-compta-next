@@ -67,28 +67,31 @@ export default async function About({ params }: AboutProps) {
       </div>
       <div className="my-48">
         <Wrapper small={true}>
-          <h3 className="text-2xl md:text-3xl font-normal mb-8">
-            <span>
-              {translate("02b909d9-754f-47a0-bcbd-274516a9b3a0", lang)}
-            </span>
-          </h3>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-[0.2fr_0.8fr] text-center md:text-left gap-8 w-full lg:w-[70%]">
-            <span className="text-2xl md:text-4xl font-extrabold text-[#002859]">
-              2014
-            </span>
-            <span className="text-lg md:text-xl font-normal">
-              TMF Compta est fondée, marquant le début de notre parcours dans le
-              domaine de la comptabilité et des services financiers.
-            </span>
-            <span className="text-2xl md:text-4xl font-extrabold text-[#002859]">
-              2015
-            </span>
-            <span className="text-lg md:text-xl font-normal">
-              Grâce à notre approche centrée sur le client et à notre engagement
-              envers l'excellence, nous gagnons la confiance de nombreuses
-              entreprises qui bénéficient de nos conseils et de notre expertise.
-            </span>
-          </div>
+          <>
+            <h3 className="text-2xl md:text-3xl font-normal mb-8">
+              <span>
+                {translate("02b909d9-754f-47a0-bcbd-274516a9b3a0", lang)}
+              </span>
+            </h3>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-[0.2fr_0.8fr] text-center md:text-left gap-8 w-full lg:w-[70%]">
+              <span className="text-2xl md:text-4xl font-extrabold text-[#002859]">
+                2014
+              </span>
+              <span className="text-lg md:text-xl font-normal">
+                TMF Compta est fondée, marquant le début de notre parcours dans
+                le domaine de la comptabilité et des services financiers.
+              </span>
+              <span className="text-2xl md:text-4xl font-extrabold text-[#002859]">
+                2015
+              </span>
+              <span className="text-lg md:text-xl font-normal">
+                Grâce à notre approche centrée sur le client et à notre
+                engagement envers l excellence, nous gagnons la confiance de
+                nombreuses entreprises qui bénéficient de nos conseils et de
+                notre expertise.
+              </span>
+            </div>
+          </>
         </Wrapper>
       </div>
     </div>
