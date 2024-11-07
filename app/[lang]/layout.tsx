@@ -50,7 +50,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
               active: false,
             },
             {
-              href: `/${lang}/a-propos`,
+              href: `/${lang}/about`,
               label: translate("2ce9c735-c131-40bb-833d-5f1d16447c1c", lang),
               active: true,
             },
