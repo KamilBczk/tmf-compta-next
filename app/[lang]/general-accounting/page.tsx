@@ -1,3 +1,4 @@
+"use client";
 import Banner from "@/components/Banner";
 import React from "react";
 
@@ -7,6 +8,7 @@ import Wrapper from "@/components/Wrapper";
 import Cta from "@/components/Cta";
 import RoundedIllustration from "@/components/RoundedIllustration";
 import ScrollToElement from "@/components/ScrollToElement";
+import { motion } from "framer-motion";
 
 /* ASSETS */
 import banner from "@/assets/general-accounting/banner.png";
@@ -26,11 +28,24 @@ export default async function GeneralAccounting({
     <div>
       <ScrollToElement />
 
-      <Banner
-        title={translate("98fe72f7-ca3c-4c6e-ade8-27fe3bbdb425", lang)}
-        image={banner}
-      />
-      <div className="mt-24">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Banner
+          title={translate("98fe72f7-ca3c-4c6e-ade8-27fe3bbdb425", lang)}
+          image={banner}
+        />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="mt-24"
+      >
         <Wrapper small={true}>
           <Cta
             reverse={true}
@@ -52,7 +67,7 @@ export default async function GeneralAccounting({
             hideButton={true}
           />
         </Wrapper>
-      </div>
+      </motion.div>
       <Services lang={lang} />
     </div>
   );
@@ -178,10 +193,14 @@ function Services({ lang }: { lang: string }) {
     <Wrapper>
       <div>
         {services.map((service, index: number) => (
-          <div
+          <motion.div
             key={index}
             id={`section${index + 1}`}
             className="pt-48 last:pb-48"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             <Cta
               title={service.title}
@@ -192,7 +211,7 @@ function Services({ lang }: { lang: string }) {
               reverse={index % 2 === 1}
               darkenImage={true}
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </Wrapper>

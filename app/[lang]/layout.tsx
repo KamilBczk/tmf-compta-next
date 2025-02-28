@@ -5,7 +5,8 @@ import { Manrope } from "next/font/google";
 
 /* COMPONENTS */
 import Header from "@/components/navigation/Header";
-
+import Footer from "@/components/navigation/Footer";
+import FloatingActionButton from "@/components/navigation/FloatingActionButton";
 /* FUNCTIONS */
 import { translate } from "@/functions/translate";
 
@@ -33,7 +34,7 @@ interface LayoutProps {
 export default async function RootLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang={lang} className="scroll-smooth">
       <body className={`${manrope.variable} antialiased`}>
         <Header
           lang={lang}
@@ -52,16 +53,18 @@ export default async function RootLayout({ children, params }: LayoutProps) {
             {
               href: `/${lang}/about`,
               label: translate("2ce9c735-c131-40bb-833d-5f1d16447c1c", lang),
-              active: true,
+              active: false,
             },
             {
               href: `/${lang}/contact`,
               label: translate("34db7e00-fd9d-44bd-9a7c-a16c9341c8f1", lang),
-              active: true,
+              active: false,
             },
           ]}
         />
         {children}
+        <Footer lang={lang} />
+        <FloatingActionButton />
       </body>
     </html>
   );

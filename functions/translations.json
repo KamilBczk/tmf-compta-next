@@ -73,10 +73,11 @@
   },
   "f4292959-1d71-499a-8c82-47ed5f973ff8": {
     "fr": "nous ",
-    "ro": "ne alegeți?"
+    "ro": "ne alegeți"
   },
   "86e5e82b-b666-4cd8-8434-006ad89d29a9": {
-    "fr": "choisir"
+    "fr": "choisir",
+    "ro": " "
   },
   "480ba1ba-92f8-4606-a190-f6ca11726f49": {
     "fr": "Nous offrons des services sur mesure pour répondre efficacement à vos besoins spécifiques.",
@@ -241,5 +242,93 @@
   "746bb341-b31c-450f-9790-28fbf433b946": {
     "fr": "Chez TMF Compta, notre mission est votre succès financier. Nous vous accompagnons avec expertise et solutions personnalisées pour optimiser votre gestion, vos décisions stratégiques et votre croissance. Faites confiance à notre équipe expérimentée pour atteindre vos objectifs entrepreneuriaux.",
     "ro": "La TMF Compta, misiunea noastră este succesul dumneavoastră financiar. Vă însoțim cu expertiză și soluții personalizate pentru a optimiza gestionarea, deciziile strategice și creșterea afacerii dumneavoastră. Aveți încredere în echipa noastră experimentată pentru a vă atinge obiectivele antreprenoriale."
+  },
+  "5e838895-81f4-4306-8edb-7ecd4e808be7": {
+    "fr": "TMF Compta est fondée, marquant le début de notre parcours dans le domaine de la comptabilité et des services financiers.",
+    "ro": "TMF Compta este înființată, marcând începutul călătoriei noastre în domeniul contabilității și serviciilor financiare."
+  },
+  "80d7ca47-75b9-4b4f-8fbe-80ffc08591ea": {
+    "fr": "Grâce à notre approche centrée sur le client et à notre engagement envers l'excellence, nous gagnons la confiance de nombreuses entreprises qui bénéficient de nos conseils et de notre expertise.",
+    "ro": "Datorită abordării noastre centrice pe client și angajamentului nostru față de excelență, câștigăm încrederea unui număr mare de companii care beneficiază de sfaturile și expertiza noastră."
+  },
+  "237ecf52-cb91-4610-b2f9-5bf515a09a78": {
+    "fr": "Nous déménageons vers de nouveaux locaux, renforçant notre capacité à offrir des services de qualité supérieure à nos clients.",
+    "ro": "Ne mutăm în noi locuri, îmbunătățind capacitatea de a oferi servicii de calitate superioară clienților noștri."
+  },
+  "ed3da60e-41cc-4686-9848-2c7814e58642": {
+    "fr": "TMF Compta franchit une étape majeure de son évolution en devenant une PME à part entière. Ce jalon témoigne de notre croissance continue et de notre engagement à offrir des services de qualité supérieure à une clientèle de plus en plus diversifiée. Nous sommes fiers d'accompagner les entreprises, petites et moyennes, dans leur développement financier et de contribuer à leur réussite.",
+    "ro": "TMF Compta a atins o etapă majoră în dezvoltarea sa, devenind o companie de PME. Acest punct semnifică continuăa creșterii și angajamentul nostru de a oferi servicii de calitate superioară clienților noștri. Ne bucurăm de a vă însoți companii mici și mijlocii în dezvoltarea financiară și contribuierea la succesul lor."
+  },
+  "3ea7662f-97a0-485a-b49e-5a12e8166027": {
+    "fr": "Notre histoire",
+    "ro": "Istoria noastră"
+  },
+  "f34cccae-4156-4cce-b3a9-0c0a21532111": {
+    "fr": "Formulaire de ",
+    "ro": "Formular de "
+  },
+  "979d9439-7a8f-4006-8f61-787922efd76b": {
+    "fr": "Nom",
+    "ro": "Nume"
+  },
+  "0f03549c-fcae-4a71-baf2-b9051e326e93": {
+    "fr": "Le nom est requis",
+    "ro": "Numele este obligatoriu"
+  },
+  "53d77f6b-e12a-433c-87ef-97abc73f0a7e": {
+    "fr": "Prénom",
+    "ro": "Prenume"
+  },
+  "79ea9c3f-f705-4ea6-9215-21854187db36": {
+    "fr": "Le prénom est requis",
+    "ro": "Prenumele este obligatoriu"
+  },
+  "08fb3c72-b701-4238-858e-54a2e8f5fe9b": {
+    "fr": "Email",
+    "ro": "Email"
+  },
+  "8ae77343-82df-4fcb-8f97-8fb8b5febcf6": {
+    "fr": "L'email est requis",
+    "ro": "Emailul este obligatoriu"
+  },
+  "0a8b972e-0cb1-488d-ba16-4402158fce65": {
+    "fr": "Format d'email invalide",
+    "ro": "Format de email invalid"
+  },
+  "e49b81f6-0b9e-48eb-ba84-423ca148e42d": {
+    "fr": "Téléphone",
+    "ro": "Telefon"
+  },
+  "63ab02cc-6b83-4d7f-a02f-9965b3772a93": {
+    "fr": "Société",
+    "ro": "Companie"
+  },
+  "52d0bc43-749e-4f58-aab6-59fe8fd7bc51": {
+    "fr": "Message",
+    "ro": "Mesaj"
+  },
+  "c289e764-a39b-491f-9114-eb2fbd6b3d3e": {
+    "fr": "Le message est requis",
+    "ro": "Mesajul este obligatoriu"
+  },
+  "e0b576b6-f0a3-4a5a-aef8-0184234fae25": {
+    "fr": "Envoyer",
+    "ro": "Trimite"
+  },
+  "dd7f6812-7a06-4d4e-b9b5-ab9848293664": {
+    "fr": "Mentions légales",
+    "ro": "Mentions legale"
+  },
+  "6d4142f7-27cb-4189-be6b-6f78b89f5659": {
+    "fr": "Déléguez votre comptabilité",
+    "ro": "Delegați contabilitatea"
+  },
+  "f3a9a22f-e9ca-4736-be39-c8040fa2ed64": {
+    "fr": "Laissez-nous votre adresse email pour être recontacté rapidement. Ensemble, trouvons la solution comptable la mieux adaptée à votre activité.",
+    "ro": "Lăsați-ne adresa dumneavoastră de email pentru a fi contactat rapid. Împreună, găsim soluția contabilă cea mai potrivită pentru activitatea dumneavoastră."
+  },
+  "4cb3f1f3-37dd-4f7b-847b-473b6ff9441d": {
+    "fr": "Contactez-nous",
+    "ro": "Contactați-ne"
   }
 }

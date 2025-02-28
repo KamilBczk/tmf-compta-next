@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface Review {
   author_name: string;
@@ -64,39 +65,63 @@ export default function CustomCarousel({ reviews }: CustomCarouselProps) {
   }
 
   return (
-    <Slider {...settings} className="cursor-grab">
-      {reviews.map((review, index) => (
-        // <a href={review.author_url} target="_blank" rel="noreferrer">
-        <div key={index} className="carousel-elem px-5">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 relative">
-              <Image
-                src={review.profile_photo_url}
-                alt={review.author_name}
-                layout="fill"
-                objectFit="contain"
-              />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <Slider {...settings} className="cursor-grab">
+        {reviews.map((review, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <div className="carousel-elem px-5">
+              <motion.div
+                className="flex items-center gap-4"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+              >
+                <div className="w-10 h-10 relative">
+                  <Image
+                    src={review.profile_photo_url}
+                    alt={review.author_name}
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+
+                <p className="p-s text-bold text-white-b300 text-left text-lg">
+                  {review.author_name}
+                </p>
+              </motion.div>
+              <motion.div
+                className="flex mt-1 gap-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
+              >
+                <div>{renderStars(review.rating)}</div>{" "}
+                <p className="p-xs text-left text-italic text-white-b300">
+                  {review.relative_time_description}
+                </p>
+              </motion.div>
+              <motion.p
+                className="mt-1 p-xs text-left text-white-b300 pb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 + 0.6 }}
+              >
+                &quot;{review.text.slice(0, 200)}
+                {review.text.length > 200 ? "..." : ""}&quot;
+              </motion.p>
             </div>
-
-            <p className="p-s text-bold text-white-b300 text-left text-lg">
-              {review.author_name}
-            </p>
-          </div>
-
-          <div className="flex mt-1 gap-4">
-            <div>{renderStars(review.rating)}</div>{" "}
-            <p className="p-xs text-left text-italic text-white-b300">
-              {review.relative_time_description}
-            </p>
-          </div>
-
-          <p className="mt-1 p-xs text-left text-white-b300 pb-8">
-            &quot;{review.text.slice(0, 200)}
-            {review.text.length > 200 ? "..." : ""}&quot;
-          </p>
-        </div>
-        // </a>
-      ))}
-    </Slider>
+          </motion.div>
+        ))}
+      </Slider>
+    </motion.div>
   );
 }

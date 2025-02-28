@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Wrapper from "../Wrapper";
 import Image, { StaticImageData } from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface HeaderProps {
   lang: string;
@@ -18,21 +19,33 @@ export default function Header({ lang, logo, elements }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       id="header"
       className="w-full sticky top-0 bg-white shadow-[0_1px_5px_-4px_rgba(0,0,0,1)] z-50"
     >
       <div id="logo">
         <Wrapper>
           <div className="py-4 flex justify-between items-center">
-            <div className="" id="header-logo">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className=""
+              id="header-logo"
+            >
               <a href={`/${lang}`}>
                 <Image src={logo} alt="" className="w-28" />
               </a>
-            </div>
+            </motion.div>
 
             {/* Menu mobile */}
-            <button
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Menu"
@@ -68,13 +81,23 @@ export default function Header({ lang, logo, elements }: HeaderProps) {
                   />
                 </svg>
               )}
-            </button>
+            </motion.button>
 
             {/* Menu desktop */}
-            <div className="hidden md:block">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="hidden md:block"
+            >
               <ul className="inline-flex gap-6">
                 {elements.map((element, indx) => (
-                  <li key={indx}>
+                  <motion.li
+                    key={indx}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.5 + indx * 0.1 }}
+                  >
                     <a
                       href={element.href}
                       className={`font-medium text-base ${
@@ -85,39 +108,49 @@ export default function Header({ lang, logo, elements }: HeaderProps) {
                     >
                       {element.label}
                     </a>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
             {/* Menu mobile content */}
-            <div
-              className={`absolute top-full left-0 w-full bg-white shadow-lg md:hidden transition-all duration-300 ease-in-out ${
-                isMenuOpen
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 -translate-y-2 pointer-events-none"
-              }`}
-            >
-              <ul className="py-2">
-                {elements.map((element, indx) => (
-                  <li key={indx} className="px-4 py-2">
-                    <a
-                      href={element.href}
-                      className={`block font-medium ${
-                        element.active === false
-                          ? "text-black"
-                          : "text-[#002859]"
-                      }`}
-                    >
-                      {element.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <AnimatePresence>
+              {isMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute top-full left-0 w-full bg-white shadow-lg md:hidden"
+                >
+                  <ul className="py-2">
+                    {elements.map((element, indx) => (
+                      <motion.li
+                        key={indx}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: indx * 0.1 }}
+                        className="px-4 py-2"
+                      >
+                        <a
+                          href={element.href}
+                          className={`block font-medium ${
+                            element.active === false
+                              ? "text-black"
+                              : "text-[#002859]"
+                          }`}
+                        >
+                          {element.label}
+                        </a>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </Wrapper>
       </div>
-    </div>
+    </motion.div>
   );
 }
