@@ -19,10 +19,8 @@ interface GeneralAccountingProps {
   }>;
 }
 
-export default async function GeneralAccounting({
-  params,
-}: GeneralAccountingProps) {
-  const { lang } = await params;
+export default function GeneralAccounting({ params }: GeneralAccountingProps) {
+  const { lang } = React.use(params);
 
   return (
     <div>

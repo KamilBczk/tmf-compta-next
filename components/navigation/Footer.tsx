@@ -161,9 +161,7 @@ export default function Footer({ lang }: FooterProps) {
                   </li>
                   <li>
                     <a
-                      href="https://kago-group.com"
-                      target="_blank"
-                      rel="noreferrer"
+                      href={`/${lang}/legal`}
                       className="text-gray-100 transition hover:opacity-75"
                     >
                       {translate("dd7f6812-7a06-4d4e-b9b5-ab9848293664", lang)}

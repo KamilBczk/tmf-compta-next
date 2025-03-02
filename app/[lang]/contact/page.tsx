@@ -8,8 +8,11 @@ import Banner from "@/components/Banner";
 import { translate } from "@/functions/translate";
 import Wrapper from "@/components/Wrapper";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import banner from "@/assets/contact/banner.png";
+import { useSearchParams } from "next/navigation";
 
 const createContactSchema = (lang: string) =>
   z.object({
@@ -31,31 +34,73 @@ const createContactSchema = (lang: string) =>
   });
 
 type ContactFormData = z.infer<ReturnType<typeof createContactSchema>>;
-
 interface ContactProps {
-  params: {
+  params: Promise<{
     lang: string;
-  };
+  }>;
 }
 
 function Contact({ params }: ContactProps) {
-  const { lang } = React.use(params);
+  const resolvedParams = React.use(params);
+  const { lang } = resolvedParams;
+  const searchParams = useSearchParams();
+  const prefillEmail = searchParams.get("email") || "";
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(createContactSchema(lang)),
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log(data);
-    // Traitement du formulaire
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: data.firstname,
+          lastName: data.lastname,
+          email: data.email,
+          phone: data.phone || "",
+          company: data.company || "",
+          message: data.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(translate("error-sending-message", lang));
+      }
+
+      toast.success(translate("33abe4ad-df62-40c7-b218-732fbb64d384", lang), {
+        position: "bottom-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      reset();
+    } catch (error) {
+      console.error(error);
+      toast.error(translate("94ad3ec6-bcaf-4ffa-959a-ca4e1ea414a3", lang), {
+        position: "bottom-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
   };
 
   return (
     <div>
+      <ToastContainer />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -150,6 +195,7 @@ function Contact({ params }: ContactProps) {
                       id="email"
                       type="email"
                       placeholder="john.doe@gmail.com"
+                      defaultValue={prefillEmail}
                       className={`w-full p-3 border rounded ${
                         errors.email ? "border-red-500" : ""
                       }`}

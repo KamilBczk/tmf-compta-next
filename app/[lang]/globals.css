@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .slick-dots li button:before {
   color: white !important;
   opacity: 0.75 !important;

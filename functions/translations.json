@@ -330,5 +330,13 @@
   "4cb3f1f3-37dd-4f7b-847b-473b6ff9441d": {
     "fr": "Contactez-nous",
     "ro": "Contactați-ne"
+  },
+  "33abe4ad-df62-40c7-b218-732fbb64d384": {
+    "fr": "Message envoyé avec succès",
+    "ro": "Mesaj trimis cu succes"
+  },
+  "94ad3ec6-bcaf-4ffa-959a-ca4e1ea414a3": {
+    "fr": "Erreur lors de l'envoi du message",
+    "ro": "Eroare la trimiterea mesajului"
   }
 }

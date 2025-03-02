@@ -18,8 +18,9 @@ interface AboutProps {
   }>;
 }
 
-export default async function About({ params }: AboutProps) {
-  const { lang } = await params;
+export default function About({ params }: AboutProps) {
+  const resolvedParams = React.use(params);
+  const { lang } = resolvedParams;
   return (
     <div>
       <motion.div

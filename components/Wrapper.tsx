@@ -1,7 +1,7 @@
 import React from "react";
 
 type WrapperProps = {
-  children: JSX.Element;
+  children: React.ReactNode;
   small?: boolean;
 };
 
