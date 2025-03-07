@@ -18,6 +18,18 @@ interface HeaderProps {
 export default function Header({ lang, logo, elements }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const languages = [
+    { code: "fr", label: "FR" },
+    { code: "ro", label: "RO" },
+  ];
+
+  const handleLanguageChange = (langCode: string) => {
+    window.location.href = window.location.pathname.replace(
+      `/${lang}`,
+      `/${langCode}`
+    );
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
@@ -88,7 +100,7 @@ export default function Header({ lang, logo, elements }: HeaderProps) {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="hidden md:block"
+              className="hidden md:flex md:items-center md:gap-6"
             >
               <ul className="inline-flex gap-6">
                 {elements.map((element, indx) => (
@@ -111,6 +123,23 @@ export default function Header({ lang, logo, elements }: HeaderProps) {
                   </motion.li>
                 ))}
               </ul>
+
+              {/* Language selector desktop */}
+              <div className="flex gap-2 ml-6">
+                {languages.map((language) => (
+                  <button
+                    key={language.code}
+                    onClick={() => handleLanguageChange(language.code)}
+                    className={`px-2 py-1 rounded ${
+                      lang === language.code
+                        ? "bg-[#002859] text-white"
+                        : "bg-gray-200 text-gray-700"
+                    }`}
+                  >
+                    {language.label}
+                  </button>
+                ))}
+              </div>
             </motion.div>
 
             {/* Menu mobile content */}
@@ -144,6 +173,27 @@ export default function Header({ lang, logo, elements }: HeaderProps) {
                         </a>
                       </motion.li>
                     ))}
+
+                    {/* Language selector mobile */}
+                    <motion.li
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="px-4 py-2 flex gap-2"
+                    >
+                      {languages.map((language) => (
+                        <button
+                          key={language.code}
+                          onClick={() => handleLanguageChange(language.code)}
+                          className={`px-2 py-1 rounded ${
+                            lang === language.code
+                              ? "bg-[#002859] text-white"
+                              : "bg-gray-200 text-gray-700"
+                          }`}
+                        >
+                          {language.label}
+                        </button>
+                      ))}
+                    </motion.li>
                   </ul>
                 </motion.div>
               )}
