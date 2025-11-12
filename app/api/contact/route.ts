@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
 export async function POST(request: Request) {
   try {
@@ -13,41 +14,35 @@ export async function POST(request: Request) {
       minute: "2-digit",
     });
 
-    const apiKey = process.env.BREVO_API_KEY;
+    const apiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {
-      throw new Error("La clé API Brevo n'est pas configurée");
+      throw new Error("La clé API Resend n'est pas configurée");
     }
 
-    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": apiKey,
-      },
-      body: JSON.stringify({
-        sender: {
-          name: "tmfcompta.be - Formulaire de contact",
-          email: "tmfcompta@kago-group.com",
-        },
-        to: [{ email: process.env.CONTACT_EMAIL }],
-        bcc: [{ email: "admin@kago-group.com" }],
-        subject: "Nouveau message depuis le formulaire de contact",
-        templateId: 3,
-        params: {
-          FIRSTNAME: firstName,
-          LASTNAME: lastName,
-          PHONE: phone,
-          COMPANY: company || "Non spécifié",
-          EMAIL: email,
-          MESSAGE: message,
-          MOREINFO: "Date: " + formattedDate,
-        },
-      }),
+    const resend = new Resend(apiKey);
+
+    const { error } = await resend.emails.send({
+      from: "TMF Compta <tmfcompta@kago-group.com>",
+      to: [process.env.CONTACT_EMAIL!],
+      bcc: ["admin@kago-group.com"],
+      subject: "Nouveau message depuis le formulaire de contact",
+      html: `
+        <h2>Nouveau message de contact</h2>
+        <p><strong>Prénom:</strong> ${firstName}</p>
+        <p><strong>Nom:</strong> ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Téléphone:</strong> ${phone || "Non spécifié"}</p>
+        <p><strong>Entreprise:</strong> ${company || "Non spécifié"}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+        <hr>
+        <p><small>Date: ${formattedDate}</small></p>
+      `,
     });
 
-    if (!response.ok) {
-      throw new Error("Erreur lors de l'envoi du message");
+    if (error) {
+      throw new Error(error.message);
     }
 
     return NextResponse.json(
