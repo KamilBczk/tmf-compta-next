@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Manrope } from "next/font/google";
 import { headers } from "next/headers";
+import Script from "next/script";
 
 /* COMPONENTS */
 import Header from "@/components/navigation/Header";
@@ -87,6 +88,12 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         {children}
         <Footer lang={lang} />
         <FloatingActionButton />
+        <Script
+          defer
+          src="https://umami.kago-group.com/script.js"
+          data-website-id="72fd3aaa-61f1-4262-9086-429bd338467c"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
