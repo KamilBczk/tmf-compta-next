@@ -91,7 +91,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
         <Script
           defer
           src="https://umami.kago-group.com/script.js"
-          data-website-id="72fd3aaa-61f1-4262-9086-429bd338467c"
+          data-website-id="c40ec6e4-93cf-4161-81a1-27b2b1fc2490"
           strategy="afterInteractive"
         />
       </body>
